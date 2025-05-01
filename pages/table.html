@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html><head><link rel="stylesheet" href="/styles.css"></head>
+<body>
+<h2>Update Marks</h2>
+<table>
+  <thead><tr><th>Subject</th><th>Adwaita</th><th>Souhardya</th><th>Suvam</th><th>Satyaki</th></tr></thead>
+  <tbody id="markRows"></tbody>
+</table>
+<script>
+const subjects = ["Maths", "Physics", "Chemistry", "Biology", "History", "Geography", "L2", "6th Subject", "English 1", "English 2"];
+const params = new URLSearchParams(window.location.search);
+const table = params.get("table");
+const tbody = document.getElementById("markRows");
+subjects.forEach(subject => {
+  const row = document.createElement("tr");
+  row.innerHTML = `<td>${subject}</td>` + Array(4).fill('<td><input type="text"></td>').join("");
+  tbody.appendChild(row);
+});
+</script>
+</body></html>
